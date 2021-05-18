@@ -51,6 +51,18 @@ if [[ $sway == 0 ]]; then
 #sway#
 ######
 echo "starting deploy of sway config"
-#stow it
-stow sway -t $HOME
+need alacritty
+	if [[ $alacritty == 0 ]]; then
+		need rofi
+		if [[ $rofi == 0 ]]; then
+			stow sway -t $HOME
+		else
+			echo "rofi not installed, and you need it for sway"
+		fi
+	else 
+		echo "alacritty not installed, and you need it for sway"
+		exit 1
+	fi
+else
+	echo "skipping sway because it's not installed"
 fi
