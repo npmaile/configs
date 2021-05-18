@@ -66,3 +66,9 @@ need alacritty
 else
 	echo "skipping sway because it's not installed"
 fi
+
+###############
+#shell scripts#
+###############
+echo "starting deploy of shell scripts"
+stow scripts -t $HOME
