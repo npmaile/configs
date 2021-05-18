@@ -35,4 +35,9 @@ set autoread
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
+"make the clipboard be system clipboard (annoying sometimes, but good most
+"times)
 set clipboard^=unnamed
+
+"wildcard ignore case
+set wic
