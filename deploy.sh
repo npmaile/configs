@@ -9,6 +9,12 @@ function need(){
 	fi
 }
 
+need stow
+if [[ $stow ==1 ]]; then
+	echo "gnu stow needs to be insalled for this program to run. exiting."
+	exit 1
+fi
+
 need nvim
 if [[ $nvim == 0 ]]; then
 ########
