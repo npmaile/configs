@@ -38,3 +38,13 @@ stow alacritty -t $HOME
 else
 	echo "skipping alacritty because alacritty cannot be found"
 fi
+
+need sway
+if [[ $sway == 0 ]]; then
+######
+#sway#
+######
+echo "starting deploy of sway config"
+#stow it
+stow sway -t $HOME
+fi
