@@ -10,7 +10,7 @@ function need(){
 }
 
 need stow
-if [[ $stow ==1 ]]; then
+if [[ $stow == 1 ]]; then
 	echo "gnu stow needs to be insalled for this program to run. exiting."
 	exit 1
 fi
