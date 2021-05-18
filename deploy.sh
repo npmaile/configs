@@ -72,3 +72,9 @@ fi
 ###############
 echo "starting deploy of shell scripts"
 stow scripts -t $HOME
+
+#####
+#zsh#
+#####
+echo "starting deploy of zshrc"
+stow zsh -t $HOME
