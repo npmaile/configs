@@ -102,3 +102,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 set enable bracketed-paste on
+
+#local conifgs
+source $HOME/.zlocal

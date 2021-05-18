@@ -35,4 +35,4 @@ set autoread
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
-
+set clipboard^=unnamed
