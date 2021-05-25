@@ -1,7 +1,7 @@
 [submodule "vim-gnupg"]
 	path = neovim/.local/share/nvim/site/pack/gnupg/start/vim-gnupg
 	url = git@github.com:jamessan/vim-gnupg
-	branch = main
+	branch = master
 [submodule "nvim-compe"]
 	branch = master
 	path = neovim/.local/share/nvim/site/pack/compe/start/nvim-compe
