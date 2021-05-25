@@ -10,8 +10,7 @@
 	path = zsh/.oh-my-zsh
 	url = git@github.com:ohmyzsh/ohmyzsh
 	branch = master
-
 [submodule "nvim-lspconfig"]
-	branch = master
 	path = neovim/.local/share/nvim/site/pack/neovim/start/nvim-lspconfig
 	url = git@github.com:neovim/nvim-lspconfig
+	branch = master
