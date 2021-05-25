@@ -26,7 +26,7 @@ if [[ $nvim == 0 ]]; then
 echo "starting deploy of vim config"
 #vim-gnupg
 git submodule sync vim-gnupg
-git submodule set-branch --branch master vim-gnupg
+git submodule set-branch --branch main vim-gnupg
 #nvim-lspconfig
 git submodule symc nvim-lspconfig
 git submodule set-branch --branch master nvim-lspconfig
