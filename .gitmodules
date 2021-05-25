@@ -1,7 +1,3 @@
-[submodule "neovim/.local/share/nvim/site/pack/go/start/vim-go"]
-	path = neovim/.local/share/nvim/site/pack/go/start/vim-go
-	url = git@github.com:fatih/vim-go
-	branch = v1.25
 [submodule "neovim/.local/share/nvim/site/pack/gnupg/start/vim-gnupg"]
 	path = neovim/.local/share/nvim/site/pack/gnupg/start/vim-gnupg
 	url = git@github.com:jamessan/vim-gnupg
@@ -9,4 +5,12 @@
 [submodule "zsh/.oh-my-zsh"]
 	path = zsh/.oh-my-zsh
 	url = git@github.com:ohmyzsh/ohmyzsh
+	branch = master
+[submodule "neovim/.local/share/nvim/site/pack/neovim/start/neovim-lspconfig"]
+	branch = master
+[submodule "neovim/.local/share/nvim/site/pack/neovim/start/nvim-compe"]
+	branch = master
+[submodule "neovim/.local/share/compe/site/pack/neovim/start/nvim-compe"]
+	branch = master
+[submodule "neovim/.local/share/nvim/site/pack/compe/start/nvim-compe"]
 	branch = master

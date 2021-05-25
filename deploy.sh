@@ -15,18 +15,25 @@ if [[ $stow == 1 ]]; then
 	exit 1
 fi
 
+#recurse submodules
+git submodule update --init --recursive
+
 need nvim
 if [[ $nvim == 0 ]]; then
 ########
 #neovim#
 ########
 echo "starting deploy of vim config"
-#vim-go
-git submodule sync neovim/.local/share/nvim/site/pack/go/start/vim-go
-git submodule set-branch --branch v1.25 neovim/.local/share/nvim/site/pack/go/start/vim-go
 #vim-gnupg
 git submodule sync neovim/.local/share/nvim/site/pack/gnupg/start/vim-gnupg
 git submodule set-branch --branch master neovim/.local/share/nvim/site/pack/gnupg/start/vim-gnupg
+#nvim-lspconfig
+git submodule symc neovim/.local/share/nvim/site/pack/neovim/start/neovim-lspconfig
+git submodule set-branch --branch master neovim/.local/share/nvim/site/pack/neovim/start/neovim-lspconfig
+#compe
+git submodule sync neovim/.local/share/nvim/site/pack/compe/start/nvim-compe
+git submodule set-branch --branch master neovim/.local/share/nvim/site/pack/compe/start/nvim-compe
+#
 #stow it
 stow neovim -t $HOME
 else
