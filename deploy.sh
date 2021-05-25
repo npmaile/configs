@@ -16,7 +16,7 @@ if [[ $stow == 1 ]]; then
 fi
 
 #recurse submodules
-git submodule update --init --recursive
+git submodule update --remote --init --recursive
 
 need nvim
 if [[ $nvim == 0 ]]; then
