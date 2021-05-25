@@ -2,10 +2,6 @@
 	path = neovim/.local/share/nvim/site/pack/gnupg/start/vim-gnupg
 	url = git@github.com:jamessan/vim-gnupg
 	branch = master
-[submodule "nvim-lspconfig"]
-	branch = master
-	path = neovim/.local/share/nvim/site/pack/neovim/start/nvim-lspconfig
-	url = git@github.com:neovim/nvim-lspconfig
 [submodule "nvim-compe"]
 	branch = master
 	path = neovim/.local/share/nvim/site/pack/compe/start/nvim-compe
@@ -14,4 +10,9 @@
 	path = zsh/.oh-my-zsh
 	url = git@github.com:ohmyzsh/ohmyzsh
 	branch = master
+
+[submodule "neovim-lspconfig"]
+	branch = master
+	path = neovim/.local/share/nvim/site/pack/neovim/start/nvim-lspconfig
+	url = git@github.com:neovim/nvim-lspconfig
 

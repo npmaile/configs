@@ -28,8 +28,8 @@ echo "starting deploy of vim config"
 git submodule sync vim-gnupg
 git submodule set-branch --branch master vim-gnupg
 #nvim-lspconfig
-git submodule symc neovim-lspconfig
-git submodule set-branch --branch master neovim-lspconfig
+git submodule symc nvim-lspconfig
+git submodule set-branch --branch master nvim-lspconfig
 #compe
 git submodule sync nvim-compe
 git submodule set-branch --branch master nvim-compe
