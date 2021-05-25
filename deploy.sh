@@ -24,16 +24,6 @@ if [[ $nvim == 0 ]]; then
 #neovim#
 ########
 echo "starting deploy of vim config"
-#vim-gnupg
-git submodule sync vim-gnupg
-git submodule set-branch --branch main vim-gnupg
-#nvim-lspconfig
-git submodule symc nvim-lspconfig
-git submodule set-branch --branch master nvim-lspconfig
-#compe
-git submodule sync nvim-compe
-git submodule set-branch --branch master nvim-compe
-#
 #stow it
 stow neovim -t $HOME
 else
