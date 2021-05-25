@@ -41,3 +41,5 @@ set clipboard^=unnamed
 
 "wildcard ignore case
 set wic
+
+com Tags !ctags -R

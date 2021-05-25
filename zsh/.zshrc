@@ -105,3 +105,6 @@ set enable bracketed-paste on
 
 #local conifgs
 source $HOME/.zlocal
+
+alias l='exa -la'
+alias tree='exa --tree'
