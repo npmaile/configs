@@ -68,8 +68,6 @@ fi
 #shell scripts#
 ###############
 echo "starting deploy of shell scripts"
-git submodule sync zsh/.oh-my-zsh
-git submodule set-branch --branch master zsh/.oh-my-zsh
 stow scripts -t $HOME
 
 #####

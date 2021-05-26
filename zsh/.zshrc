@@ -106,5 +106,12 @@ set enable bracketed-paste on
 #local conifgs
 source $HOME/.zlocal
 
+##go setup stuff
+if (( $+commands[go] ))
+then
+	export GOPATH="$HOME/go"
+	export PATH="$GOPATH/bin:$PATH"
+fi
+
 alias l='exa -la'
 alias tree='exa --tree'
