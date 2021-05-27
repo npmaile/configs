@@ -31,12 +31,6 @@ set autoread
             \ if mode() !~ '\v(c|r.?|!|t)' && getcmdwintype() == '' | checktime | endif
 
 
-"gopls
-lua <<EOF
-require'lspconfig'.gopls.setup{}
-EOF
-
-
 " Notification after file change
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
