@@ -28,3 +28,4 @@
     end
   end
 
+vim.cmd('autocmd BufWritePre *.go lua goimports(1000)')
