@@ -15,6 +15,6 @@
 	url = git@github.com:neovim/nvim-lspconfig
 	branch = master
 [submodule "zsh-autosuggestions"]
-	path = zsh/.oh-my-zsh/plugins/zsh-autosuggestions
+	path = zsh/plugins/zsh-autosuggestions
 	url = git@github.com:zsh-users/zsh-autosuggestions
 	branch = master
