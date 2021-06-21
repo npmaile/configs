@@ -221,3 +221,7 @@ smart_gaps on
 default_border pixel 0
 include /etc/sway/config.d/*
 bindsym $mod+p exec passSelect.sh
+
+
+#make pipewire stuff work properly
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
