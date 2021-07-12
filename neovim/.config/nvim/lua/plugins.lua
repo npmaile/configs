@@ -1,0 +1,6 @@
+vim.api.nvim_call_function("plug#begin", {"~/.vim/plugged"})
+vim.cmd('Plug \'neovim/nvim-lspconfig\'')
+vim.cmd('Plug \'hrsh7th/nvim-compe\'')
+vim.cmd('Plug \'jamessan/vim-gnupg\'')
+vim.cmd('Plug \'nvim-treesitter/nvim-treesitter\'')
+vim.api.nvim_call_function("plug#end", {})

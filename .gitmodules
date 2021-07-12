@@ -1,18 +1,6 @@
-[submodule "vim-gnupg"]
-	path = neovim/.local/share/nvim/site/pack/gnupg/start/vim-gnupg
-	url = git@github.com:jamessan/vim-gnupg
-	branch = main
-[submodule "nvim-compe"]
-	branch = master
-	path = neovim/.local/share/nvim/site/pack/compe/start/nvim-compe
-	url = git@github.com:hrsh7th/nvim-compe
 [submodule "zsh/.oh-my-zsh"]
 	path = zsh/.oh-my-zsh
 	url = git@github.com:ohmyzsh/ohmyzsh
-	branch = master
-[submodule "nvim-lspconfig"]
-	path = neovim/.local/share/nvim/site/pack/neovim/start/nvim-lspconfig
-	url = git@github.com:neovim/nvim-lspconfig
 	branch = master
 [submodule "zsh-autosuggestions"]
 	path = zsh/.config/zsh-custom/plugins/zsh-autosuggestions
