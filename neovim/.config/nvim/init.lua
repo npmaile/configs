@@ -5,4 +5,5 @@ require('compeautocompletions')
 require('go')
 require('relativenumber')
 require('noswap')
+require('treesitter')
 
