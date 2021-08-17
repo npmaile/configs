@@ -224,3 +224,9 @@ bindsym $mod+p exec passSelect.sh
 
 #make pipewire stuff work properly
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+
+input "type:keyboard" {
+	xkb_options caps:escape
+}
+
+include ~/.config/sway/localconfigs
