@@ -230,4 +230,3 @@ input "type:keyboard" {
 }
 
 include ~/.config/sway/localconfigs
-bindsym $mod+S grim -g "$(slurp -d)" - | wl-copy
