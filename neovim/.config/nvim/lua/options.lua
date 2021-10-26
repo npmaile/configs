@@ -8,3 +8,5 @@ vim.o.clipboard = 'unnamedplus'
 --wildcard ignore case
 vim.o.wic = true
 
+--Escape leaves input mode in neovim-terminal
+vim.cmd(':tnoremap <Esc> <C-\\><C-n>')
