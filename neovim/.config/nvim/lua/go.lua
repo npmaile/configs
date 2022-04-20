@@ -1,4 +1,5 @@
-  function OrgImports(wait_ms)
+local wait_ms = 1000
+local OrgImports = function()
     local params = vim.lsp.util.make_range_params()
     params.context = {only = {"source.organizeImports"}}
     local result = vim.lsp.buf_request_sync(0, "textDocument/codeAction", params, wait_ms)
@@ -13,4 +14,8 @@
     end
   end
 
-vim.cmd('autocmd BufWritePre *.go lua OrgImports(1000)')
+vim.api.nvim_create_autocmd("BufWritePre",{
+	pattern = "*.go",
+	callback = OrgImports
+})
+
