@@ -9,7 +9,4 @@ vim.o.clipboard = 'unnamedplus'
 vim.o.wic = true
 
 --Escape leaves input mode in neovim-terminal
-vim.cmd(':tnoremap <Esc> <C-\\><C-n>')
-
---Don't write netrw history
-vim.cmd('let g:netrw_dirhistmax = 0')
+vim.api.nvim_set_keymap('t', '<Esc>','<c-\\><C-n>',{})
