@@ -1,7 +1,20 @@
   -- Setup nvim-cmp.
   local cmp = require'cmp'
+  local lspkind = require('lspkind')
 
   cmp.setup({
+    formatting = {
+	format = lspkind.cmp_format({
+    mode = "symbol_text",
+    menu = ({
+      buffer = "[Buffer]",
+      nvim_lsp = "[LSP]",
+      luasnip = "[LuaSnip]",
+      nvim_lua = "[Lua]",
+      latex_symbols = "[Latex]",
+    })
+  }),
+    },
     snippet = {
       -- REQUIRED - you must specify a snippet engine
       expand = function(args)
@@ -62,3 +75,6 @@
 
   -- Setup lspconfig.
   local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
+  -- Add symbols for types
+
