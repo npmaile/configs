@@ -16,5 +16,6 @@ Plug 'hrsh7th/vim-vsnip'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'mhinz/vim-startify'
+Plug 'onsails/lspkind.nvim'
 ]]
 vim.api.nvim_call_function("plug#end", {})
