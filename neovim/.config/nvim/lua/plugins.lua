@@ -11,7 +11,6 @@ Plug 'jamessan/vim-gnupg'
 Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'kyazdani42/nvim-web-devicons'
-Plug 'mhinz/vim-startify'
 Plug 'neovim/nvim-lspconfig'
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
