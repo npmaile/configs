@@ -15,5 +15,8 @@ vim.o.wic = true
 --Escape leaves input mode in neovim-terminal
 vim.api.nvim_set_keymap('t', '<Esc>','<c-\\><C-n>',{})
 
+-- global status line
 vim.o.laststatus = 3
 
+-- make harpoon useless
+vim.cmd('autocmd BufEnter * norm \'"')
