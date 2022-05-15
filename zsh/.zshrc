@@ -115,3 +115,4 @@ fi
 
 alias l='exa -la'
 alias tree='exa --tree'
+
