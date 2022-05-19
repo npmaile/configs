@@ -20,3 +20,10 @@ vim.o.laststatus = 3
 
 -- make harpoon useless
 vim.cmd('autocmd BufEnter * norm \'"')
+
+vim.g.mapleader = ','
+
+vim.api.nvim_set_keymap('n', '<leader>h','<C-w>h',{}) 
+vim.api.nvim_set_keymap('n', '<leader>j','<C-w>j',{}) 
+vim.api.nvim_set_keymap('n', '<leader>k','<C-w>k',{}) 
+vim.api.nvim_set_keymap('n', '<leader>l','<C-w>l',{}) 
