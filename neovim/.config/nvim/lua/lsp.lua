@@ -49,7 +49,7 @@ local on_attach = function(client, bufnr)
 		pattern = "*.go",
 		callback = function()
 			OrgImports()
-			vim.lsp.buf.formatting_sync()
+			vim.lsp.buf.format { async = true }
 		end,
 	})
 end
