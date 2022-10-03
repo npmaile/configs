@@ -128,3 +128,6 @@ require 'lspconfig'.sumneko_lua.setup {
 		},
 	},
 }
+
+-- typescirpt config
+require 'lspconfig'.tsserver.setup{}
