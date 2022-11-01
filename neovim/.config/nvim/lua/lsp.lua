@@ -131,5 +131,7 @@ require 'lspconfig'.sumneko_lua.setup {
 
 -- typescirpt config
 require 'lspconfig'.tsserver.setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
 	settings = { documentFormatting = true }
 }
