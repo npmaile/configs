@@ -46,7 +46,6 @@ local on_attach = function(client, bufnr)
 		end
 	end
 	vim.api.nvim_create_autocmd("BufWritePre", {
-		pattern = "*.go",
 		callback = function()
 			OrgImports()
 			vim.lsp.buf.format { async = true }
@@ -124,6 +123,9 @@ require 'lspconfig'.sumneko_lua.setup {
 			-- Do not send telemetry data containing a randomized but unique identifier
 			telemetry = {
 				enable = false,
+			},
+			format = {
+				enable = true,
 			},
 		},
 	},
