@@ -137,3 +137,9 @@ require 'lspconfig'.tsserver.setup {
 	capabilities = capabilities,
 	settings = { documentFormatting = true }
 }
+
+-- typesetting config
+require 'lspconfig'.ltex.setup {
+	on_attach = on_attach,
+	capabilities = capabilities,
+}
