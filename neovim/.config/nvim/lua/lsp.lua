@@ -46,10 +46,10 @@ local on_attach = function(client, bufnr)
 		end
 	end
 	vim.api.nvim_create_autocmd("BufWritePre", {
-	    callback = function()
-		    OrgImports()
-		    vim.lsp.buf.format { async = true }
-	    end,
+		callback = function()
+			OrgImports()
+			vim.lsp.buf.format { async = true }
+		end,
 	})
 end
 --capabilities
@@ -60,41 +60,41 @@ capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 --Setup Rust Analyzer
 require('lspconfig')['rust_analyzer'].setup {
-    capabilities = capabilities,
-    on_attach = on_attach,
-    flags = {
-        -- This will be the default in neovim 0.7+
-        debounce_text_changes = 150,
-    }
+	capabilities = capabilities,
+	on_attach = on_attach,
+	flags = {
+		-- This will be the default in neovim 0.7+
+		debounce_text_changes = 150,
+	}
 }
 
 
 -- Go configuration
 require('lspconfig')['gopls'].setup {
-    cmd = { 'gopls' },
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = {
-        gopls = {
-            experimentalPostfixCompletions = true,
-            analyses = {
-                unusedparams = true,
-                shadow = true,
-                fieldalignment = true,
-                nilness = true,
-                unusedwrite = true,
+	cmd = { 'gopls' },
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = {
+		gopls = {
+			experimentalPostfixCompletions = true,
+			analyses = {
+				unusedparams = true,
+				shadow = true,
+				fieldalignment = true,
+				nilness = true,
+				unusedwrite = true,
 
 
-            },
-            staticcheck = true,
-            codelenses = {
-                tidy = true
-            },
-        },
-    },
-    init_options = {
-        usePlaceholders = true,
-    }
+			},
+			staticcheck = true,
+			codelenses = {
+				tidy = true
+			},
+		},
+	},
+	init_options = {
+		usePlaceholders = true,
+	}
 }
 
 -- lua config
@@ -103,43 +103,43 @@ table.insert(runtime_path, "lua/?.lua")
 table.insert(runtime_path, "lua/?/init.lua")
 
 require 'lspconfig'.lua_ls.setup {
-    on_attach = on_attach,
-    settings = {
-        Lua = {
-            runtime = {
-                -- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-                version = 'LuaJIT',
-                -- Setup your lua path
-                path = runtime_path,
-            },
-            diagnostics = {
-                -- Get the language server to recognize the `vim` global
-                globals = { 'vim' },
-            },
-            workspace = {
-                -- Make the server aware of Neovim runtime files
-                library = vim.api.nvim_get_runtime_file("", true),
-            },
-            -- Do not send telemetry data containing a randomized but unique identifier
-            telemetry = {
-                enable = false,
-            },
-            format = {
-                enable = true,
-            },
-        },
-    },
+	on_attach = on_attach,
+	settings = {
+		Lua = {
+			runtime = {
+				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+				version = 'LuaJIT',
+				-- Setup your lua path
+				path = runtime_path,
+			},
+			diagnostics = {
+				-- Get the language server to recognize the `vim` global
+				globals = { 'vim' },
+			},
+			workspace = {
+				-- Make the server aware of Neovim runtime files
+				library = vim.api.nvim_get_runtime_file("", true),
+			},
+			-- Do not send telemetry data containing a randomized but unique identifier
+			telemetry = {
+				enable = false,
+			},
+			format = {
+				enable = true,
+			},
+		},
+	},
 }
 
 -- typescirpt config
 require 'lspconfig'.tsserver.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = { documentFormatting = true }
+	on_attach = on_attach,
+	capabilities = capabilities,
+	settings = { documentFormatting = true }
 }
 
 -- typesetting config
 require 'lspconfig'.ltex.setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
+	on_attach = on_attach,
+	capabilities = capabilities,
 }

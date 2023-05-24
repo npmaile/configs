@@ -8,4 +8,4 @@ require('noswap')
 require('treesitter')
 require('statusline')
 require('netrw')
-
+require('colors')

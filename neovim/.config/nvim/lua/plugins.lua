@@ -17,5 +17,6 @@ Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'onsails/lspkind.nvim'
 Plug 'simrat39/rust-tools.nvim'
+Plug 'folke/tokyonight.nvim'
 ]]
 vim.api.nvim_call_function("plug#end", {})
