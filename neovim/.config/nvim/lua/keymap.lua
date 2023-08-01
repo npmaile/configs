@@ -14,3 +14,5 @@ vim.api.nvim_set_keymap('t', '<Esc>','<c-\\><C-n>',{})
 
 --Fin with f
 vim.api.nvim_set_keymap('n', '<leader>f',':find ',{})
+--Edit with e
+vim.api.nvim_set_keymap('n', '<leader>e',':edit ',{})
