@@ -20,10 +20,11 @@ vim.o.wic = true
 vim.o.laststatus = 3
 
 -- make harpoon useless
-vim.cmd('autocmd BufWinEnter * norm \'"')
+vim.cmd('autocmd BufReadPost * norm \'"')
 
 -- set leader
 vim.g.mapleader = ','
 
 -- don't split on word when wrapping lines
 vim.o.linebreak = true
+
