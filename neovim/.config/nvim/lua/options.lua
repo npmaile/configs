@@ -9,6 +9,8 @@ vim.o.clipboard = 'unnamedplus'
 
 -- buffer on bottom and top when scrolling
 vim.o.scrolloff = 4
+
+-- clean up window separator
 vim.cmd('highlight WinSeparator guibg=None')
 
 --wildcard ignore case
