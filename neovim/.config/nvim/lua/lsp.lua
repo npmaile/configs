@@ -1,10 +1,11 @@
+-- Boilerplate from nvim-lspconfig
 local opts = { noremap = true, silent = true }
 vim.api.nvim_set_keymap('n', '<space>e', '<cmd>lua vim.diagnostic.open_float()<CR>', opts)
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 vim.api.nvim_set_keymap('n', '<space>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', opts)
 
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
 	-- Enable completion triggered by <c-x><c-o>
 	vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
 	-- Mappings.
@@ -52,94 +53,99 @@ local on_attach = function(client, bufnr)
 		end,
 	})
 end
+
 --capabilities
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
-capabilities.textDocument.completion.completionItem.snippetSupport = true
+local capabilities_with_formatting = require('cmp_nvim_lsp').default_capabilities()
+capabilities_with_formatting.textDocument.completion.completionItem.snippetSupport = true
+
+require("mason").setup()
+require("mason-lspconfig").setup()
+
+require("mason-lspconfig").setup_handlers {
+	-- default setup for unconfigured servers
+	function(server_name)
+		require("lspconfig")[server_name].setup {
+			on_attach = on_attach,
+		}
+	end,
+	-- Go configuration
+	["gopls"] = function()
+		require('lspconfig')['gopls'].setup {
+			cmd = { 'gopls' },
+			on_attach = on_attach,
+			capabilities = capabilities_with_formatting,
+			settings = {
+				gopls = {
+					experimentalPostfixCompletions = true,
+					analyses = {
+						unusedparams = true,
+						shadow = true,
+						fieldalignment = true,
+						nilness = true,
+						unusedwrite = true,
 
 
-
---Setup Rust Analyzer
-require('lspconfig')['rust_analyzer'].setup {
-	capabilities = capabilities,
-	on_attach = on_attach,
-	flags = {
-		-- This will be the default in neovim 0.7+
-		debounce_text_changes = 150,
-	}
-}
-
-
--- Go configuration
-require('lspconfig')['gopls'].setup {
-	cmd = { 'gopls' },
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = {
-		gopls = {
-			experimentalPostfixCompletions = true,
-			analyses = {
-				unusedparams = true,
-				shadow = true,
-				fieldalignment = true,
-				nilness = true,
-				unusedwrite = true,
-
-
+					},
+					staticcheck = true,
+					codelenses = {
+						tidy = true
+					},
+				},
 			},
-			staticcheck = true,
-			codelenses = {
-				tidy = true
-			},
-		},
-	},
-	init_options = {
-		usePlaceholders = true,
-	}
-}
+			init_options = {
+				usePlaceholders = true,
+			}
+		}
+	end,
+	-- lua config
+	["lua_ls"] = function()
+		local runtime_path = vim.split(package.path, ';')
+		table.insert(runtime_path, "lua/?.lua")
+		table.insert(runtime_path, "lua/?/init.lua")
 
--- lua config
-local runtime_path = vim.split(package.path, ';')
-table.insert(runtime_path, "lua/?.lua")
-table.insert(runtime_path, "lua/?/init.lua")
-
-require 'lspconfig'.lua_ls.setup {
-	on_attach = on_attach,
-	settings = {
-		Lua = {
-			runtime = {
-				-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-				version = 'LuaJIT',
-				-- Setup your lua path
-				path = runtime_path,
+		require 'lspconfig'.lua_ls.setup {
+			on_attach = on_attach,
+			settings = {
+				Lua = {
+					runtime = {
+						-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
+						version = 'LuaJIT',
+						-- Setup your lua path
+						path = runtime_path,
+					},
+					diagnostics = {
+						-- Get the language server to recognize the `vim` global
+						globals = { 'vim' },
+					},
+					workspace = {
+						-- Make the server aware of Neovim runtime files
+						library = vim.api.nvim_get_runtime_file("", true),
+						checkThirdParty = false,
+					},
+					-- Do not send telemetry data containing a randomized but unique identifier
+					telemetry = {
+						enable = false,
+					},
+					format = {
+						enable = true,
+					},
+				},
 			},
-			diagnostics = {
-				-- Get the language server to recognize the `vim` global
-				globals = { 'vim' },
-			},
-			workspace = {
-				-- Make the server aware of Neovim runtime files
-				library = vim.api.nvim_get_runtime_file("", true),
-			},
-			-- Do not send telemetry data containing a randomized but unique identifier
-			telemetry = {
-				enable = false,
-			},
-			format = {
-				enable = true,
-			},
-		},
-	},
-}
-
--- typescirpt config
-require 'lspconfig'.tsserver.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
-	settings = { documentFormatting = true }
-}
-
--- typesetting config
-require 'lspconfig'.ltex.setup {
-	on_attach = on_attach,
-	capabilities = capabilities,
+		}
+	end,
+	-- typescirpt config
+	["tsserver"] = function()
+		require 'lspconfig'.tsserver.setup {
+			on_attach = on_attach,
+			capabilities = capabilities_with_formatting,
+			settings = { documentFormatting = true }
+		}
+	end,
+	-- typesetting config (requires a java runtime)
+	["ltex"] = function()
+		require 'lspconfig'.ltex.setup {
+			on_attach = on_attach,
+			capabilities = capabilities_with_formatting,
+		}
+	end
 }

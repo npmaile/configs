@@ -25,10 +25,12 @@ require("lazy").setup({
 	"junegunn/fzf",
 	"junegunn/fzf.vim",
 	"kyazdani42/nvim-web-devicons",
-	"neovim/nvim-lspconfig",
 	"nvim-lualine/lualine.nvim",
 	"nvim-treesitter/nvim-treesitter",
 	"onsails/lspkind.nvim",
 	"simrat39/rust-tools.nvim",
 	"folke/tokyonight.nvim",
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	"neovim/nvim-lspconfig",
 })
