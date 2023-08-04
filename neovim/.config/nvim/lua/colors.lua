@@ -5,13 +5,8 @@ require("tokyonight").setup({
 	styles = {
 		sidebars = "dark",
 	},
-	dim_inactive = true,
 	on_highlights = function(colors)
 		colors.LineNr = colors.orange
-		colors.Comment = {
-			fg = colors.white,
-			style = colors.italic,
-		}
 		colors.DiagnosticWarn = colors.red
 	end,
 
