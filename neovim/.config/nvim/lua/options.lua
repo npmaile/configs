@@ -18,7 +18,11 @@ vim.o.wic = true
 vim.o.laststatus = 3
 
 -- make harpoon useless
-vim.cmd('autocmd BufWinEnter * norm \'"')
+vim.api.nvim_create_autocmd({ "BufEnter" }, {
+	callback = function()
+		vim.cmd('norm \'"')
+	end,
+})
 
 -- set leader
 vim.g.mapleader = ','
