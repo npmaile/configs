@@ -1,2 +1,4 @@
 neovim/.local/share/nvim/shada/*
 neovim/.local/share/nvim/.netrwhist
+neovim/.config/nvim/lazy-lock.json
+.luarc.json

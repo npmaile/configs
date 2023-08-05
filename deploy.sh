@@ -15,6 +15,10 @@ if [[ $stow == 1 ]]; then
 	exit 1
 fi
 
+# set up intermediate files in case they don't already exist
+mkdir -p $HOME/.config
+mkdir -p $HOME/.local/share
+
 #recurse submodules
 git submodule update --remote --init --recursive
 

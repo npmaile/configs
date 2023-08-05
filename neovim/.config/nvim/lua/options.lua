@@ -9,6 +9,8 @@ vim.o.clipboard = 'unnamedplus'
 
 -- buffer on bottom and top when scrolling
 vim.o.scrolloff = 4
+
+-- clean up window separator
 vim.cmd('highlight WinSeparator guibg=None')
 
 --wildcard ignore case
@@ -18,7 +20,7 @@ vim.o.wic = true
 vim.o.laststatus = 3
 
 -- make harpoon useless
-vim.api.nvim_create_autocmd({ "BufEnter" }, {
+vim.api.nvim_create_autocmd({ "BufReadPost" }, {
 	callback = function()
 		vim.cmd('norm \'"')
 	end,
@@ -29,3 +31,4 @@ vim.g.mapleader = ','
 
 -- don't split on word when wrapping lines
 vim.o.linebreak = true
+

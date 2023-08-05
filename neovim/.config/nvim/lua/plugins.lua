@@ -1,22 +1,36 @@
-vim.api.nvim_call_function("plug#begin", { "~/.vim/plugged" })
-vim.cmd [[
-Plug 'hrsh7th/cmp-buffer'
-Plug 'hrsh7th/cmp-cmdline'
-Plug 'hrsh7th/cmp-nvim-lsp'
-Plug 'hrsh7th/cmp-path'
-Plug 'hrsh7th/cmp-vsnip'
-Plug 'hrsh7th/nvim-cmp'
-Plug 'hrsh7th/vim-vsnip'
-Plug 'hrsh7th/vim-vsnip-integ'
-Plug 'jamessan/vim-gnupg'
-Plug 'junegunn/fzf', {'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'kyazdani42/nvim-web-devicons'
-Plug 'neovim/nvim-lspconfig'
-Plug 'nvim-lualine/lualine.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'onsails/lspkind.nvim'
-Plug 'simrat39/rust-tools.nvim'
-Plug 'folke/tokyonight.nvim'
-]]
-vim.api.nvim_call_function("plug#end", {})
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+	vim.fn.system({
+		"git",
+		"clone",
+		"--filter=blob:none",
+		"https://github.com/folke/lazy.nvim.git",
+		"--branch=stable", -- latest stable release
+		lazypath,
+	})
+end
+vim.opt.rtp:prepend(lazypath)
+
+
+require("lazy").setup({
+	"hrsh7th/cmp-buffer",
+	"hrsh7th/cmp-cmdline",
+	"hrsh7th/cmp-nvim-lsp",
+	"hrsh7th/cmp-path",
+	"hrsh7th/cmp-vsnip",
+	"hrsh7th/nvim-cmp",
+	"hrsh7th/vim-vsnip",
+	"hrsh7th/vim-vsnip-integ",
+	"jamessan/vim-gnupg",
+	"junegunn/fzf",
+	"junegunn/fzf.vim",
+	"kyazdani42/nvim-web-devicons",
+	"nvim-lualine/lualine.nvim",
+	"nvim-treesitter/nvim-treesitter",
+	"onsails/lspkind.nvim",
+	"simrat39/rust-tools.nvim",
+	"folke/tokyonight.nvim",
+	"williamboman/mason.nvim",
+	"williamboman/mason-lspconfig.nvim",
+	"neovim/nvim-lspconfig",
+})
