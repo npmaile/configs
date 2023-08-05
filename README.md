@@ -6,8 +6,8 @@ Everyone has them. Some are better than others. This set is the best.
 
 This config set is made specifically for my [Arch Linux](https://archlinux.org) configuration.
 I also set it up to only deploy configurations for installed programs in case it's run on a MacOS install for vim and Alacritty.
-It works well enough, but likely you aren't as good as me and would want to make changes to it.
-Feel free to do so. 
+It works perfectly for my perfect use cases , but likely you aren't as perfect as me and would want to make changes to it.
+Feel free to do so.
 
 ## Prerequisites
 
