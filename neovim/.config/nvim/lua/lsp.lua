@@ -36,8 +36,8 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 --capabilities
-local capabilities_with_formatting = require('cmp_nvim_lsp').default_capabilities()
-capabilities_with_formatting.textDocument.completion.completionItem.snippetSupport = true
+local capabilities_with_completion = require('cmp_nvim_lsp').default_capabilities()
+capabilities_with_completion.textDocument.completion.completionItem.snippetSupport = true
 
 require("mason").setup()
 require("mason-lspconfig").setup()
@@ -51,7 +51,7 @@ require("mason-lspconfig").setup_handlers {
 	["gopls"] = function()
 		require('lspconfig')['gopls'].setup {
 			cmd = { 'gopls' },
-			capabilities = capabilities_with_formatting,
+			capabilities = capabilities_with_completion,
 			settings = {
 				gopls = {
 					experimentalPostfixCompletions = true,
