@@ -27,4 +27,3 @@ vim.g.mapleader = ','
 
 -- don't split on word when wrapping lines
 vim.o.linebreak = true
-
