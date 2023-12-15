@@ -8,6 +8,15 @@ function need(){
 		eval $__resultvar='1'
 	fi
 }
+function need2(){
+	local __resultvar=$1
+	if command $1 --help &> /dev/null
+	then
+		eval $__resultvar='0'
+	else
+		eval $__resultvar='1'
+	fi
+}
 
 need stow
 if [[ $stow == 1 ]]; then
@@ -54,7 +63,7 @@ if [[ $sway == 0 ]]; then
 echo "starting deploy of sway config"
 need alacritty
 	if [[ $alacritty == 0 ]]; then
-		need rofi
+		need2 rofi
 		if [[ $rofi == 0 ]]; then
 			stow sway -t $HOME
 		else

@@ -220,6 +220,15 @@ gaps outer 5
 smart_gaps on
 default_border pixel 0
 include /etc/sway/config.d/*
+
+# set up swaylock
+set $lock swaylock -c 550000
+exec swayidle -w \
+	timeout 600 $lock \
+	timeout 570 'swaymsg "output * dpms off"' \
+	resume 'swaymsg "output * dpms on"' \
+	before-sleep $lock
+
 bindsym $mod+p exec passSelect.sh
 bindsym $mod+w exec papeChanger
 bindsym $mod+Shift+w exec papeChanger -c
@@ -227,7 +236,7 @@ bindsym $mod+Shift+a exec bemoji -t
 
 exec papeChanger
 
-
+exec dunst
 
 #make pipewire stuff work properly
 exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
