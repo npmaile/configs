@@ -35,3 +35,4 @@ alias l='exa -la'
 alias tree='exa --tree'
 # the only editor that matters
 export EDITOR=`which nvim`
+

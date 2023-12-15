@@ -32,3 +32,6 @@ vim.g.mapleader = ','
 -- don't split on word when wrapping lines
 vim.o.linebreak = true
 
+-- undo buffer persists after close
+vim.opt.undofile = true
+

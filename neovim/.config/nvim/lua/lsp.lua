@@ -55,6 +55,18 @@ require("mason-lspconfig").setup_handlers {
 	function(server_name)
 		require("lspconfig")[server_name].setup {}
 	end,
+	["yamlls"] = function()
+		require('lspconfig')['yamlls'].setup {
+			capabilities = capabilities_with_completion,
+			settings = {
+				yaml = {
+					schemas = {
+						["http://json.schemastore.org/github-action"] = ".github/workflows/*",
+					}
+				}
+			}
+		}
+	end,
 	-- Go configuration
 	["gopls"] = function()
 		require('lspconfig')['gopls'].setup {
