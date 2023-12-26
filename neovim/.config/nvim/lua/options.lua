@@ -35,5 +35,3 @@ vim.o.linebreak = true
 -- undo buffer persists after close
 vim.opt.undofile = true
 
-vim.o.tabstop = 4
-
