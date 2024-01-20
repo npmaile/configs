@@ -33,4 +33,5 @@ require("lazy").setup({
 	"williamboman/mason.nvim",
 	"williamboman/mason-lspconfig.nvim",
 	"neovim/nvim-lspconfig",
+	"https://git.sr.ht/~whynothugo/lsp_lines.nvim"
 })
