@@ -234,7 +234,7 @@ bindsym $mod+w exec papeChanger
 bindsym $mod+Shift+w exec papeChanger -c
 bindsym $mod+Shift+a exec bemoji -t
 
-exec papeChanger
+exec papeChanger -randomize
 
 exec dunst
 
