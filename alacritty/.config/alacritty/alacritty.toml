@@ -27,7 +27,9 @@ shape = "Beam"
 
 [font.normal]
 family = "Hack Nerd Font"
+#family = "perfectFont"
 
 [window]
 decorations = "none"
-opacity = 0.5
+opacity = 0.2
+blur = true

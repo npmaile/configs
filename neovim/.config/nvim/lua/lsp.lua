@@ -78,7 +78,6 @@ require("mason-lspconfig").setup_handlers {
 					analyses = {
 						unusedparams = true,
 						shadow = true,
-						fieldalignment = true,
 						nilness = true,
 						unusedwrite = true,
 					},
@@ -126,12 +125,6 @@ require("mason-lspconfig").setup_handlers {
 					},
 				},
 			},
-		}
-	end,
-	-- typescirpt config
-	["tsserver"] = function()
-		require 'lspconfig'.tsserver.setup {
-			settings = { documentFormatting = true }
 		}
 	end,
 }
