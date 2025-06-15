@@ -10,7 +10,6 @@ vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist)
 vim.api.nvim_create_autocmd('LspAttach', {
 	group = vim.api.nvim_create_augroup('UserLspConfig', {}),
 	callback = function(ev)
-
 		-- set up lsp_lines
 		require("lsp_lines").setup()
 		-- remove default lsp diagnostic lines
@@ -39,7 +38,6 @@ vim.api.nvim_create_autocmd('LspAttach', {
 		vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
 		vim.keymap.set('n', '<space>f', function()
 			vim.lsp.buf.format { async = true }
-
 		end, opts)
 	end,
 })
@@ -48,83 +46,5 @@ local capabilities_with_completion = require('cmp_nvim_lsp').default_capabilitie
 capabilities_with_completion.textDocument.completion.completionItem.snippetSupport = true
 
 require("mason").setup()
+
 require("mason-lspconfig").setup()
-
-require("mason-lspconfig").setup_handlers {
-	-- default setup for unconfigured servers
-	function(server_name)
-		require("lspconfig")[server_name].setup {}
-	end,
-	["yamlls"] = function()
-		require('lspconfig')['yamlls'].setup {
-			capabilities = capabilities_with_completion,
-			settings = {
-				yaml = {
-					schemas = {
-						["http://json.schemastore.org/github-action"] = ".github/workflows/*",
-					}
-				}
-			}
-		}
-	end,
-	-- Go configuration
-	["gopls"] = function()
-		require('lspconfig')['gopls'].setup {
-			cmd = { 'gopls' },
-			capabilities = capabilities_with_completion,
-			settings = {
-				gopls = {
-					experimentalPostfixCompletions = true,
-					analyses = {
-						unusedparams = true,
-						shadow = true,
-						nilness = true,
-						unusedwrite = true,
-					},
-					staticcheck = true,
-					codelenses = {
-						tidy = true
-					},
-				},
-			},
-			init_options = {
-				usePlaceholders = true,
-			}
-		}
-	end,
-	-- lua config
-	["lua_ls"] = function()
-		local runtime_path = vim.split(package.path, ';')
-		table.insert(runtime_path, "lua/?.lua")
-		table.insert(runtime_path, "lua/?/init.lua")
-
-		require 'lspconfig'.lua_ls.setup {
-			settings = {
-				Lua = {
-					runtime = {
-						-- Tell the language server which version of Lua you're using (most likely LuaJIT in the case of Neovim)
-						version = 'LuaJIT',
-						-- Setup your lua path
-						path = runtime_path,
-					},
-					diagnostics = {
-						-- Get the language server to recognize the `vim` global
-						globals = { 'vim' },
-					},
-					workspace = {
-						-- Make the server aware of Neovim runtime files
-						library = vim.api.nvim_get_runtime_file("", true),
-						checkThirdParty = false,
-					},
-					-- Do not send telemetry data containing a randomized but unique identifier
-					telemetry = {
-						enable = false,
-					},
-					format = {
-						enable = true,
-					},
-				},
-			},
-		}
-	end,
-}
