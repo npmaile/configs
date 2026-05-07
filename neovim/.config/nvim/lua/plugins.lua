@@ -29,13 +29,16 @@ require("lazy").setup({
 		"junegunn/fzf.vim",
 		"kyazdani42/nvim-web-devicons",
 		"nvim-lualine/lualine.nvim",
-		"nvim-treesitter/nvim-treesitter",
+		{
+			"nvim-treesitter/nvim-treesitter",
+			lazy = false,
+			build = ':TSUpdate'
+		},
 		"onsails/lspkind.nvim",
 		"simrat39/rust-tools.nvim",
 		"folke/tokyonight.nvim",
 		"mason-org/mason.nvim",
 		"mason-org/mason-lspconfig.nvim",
-		"neovim/nvim-lspconfig",
 		"https://git.sr.ht/~whynothugo/lsp_lines.nvim",
 		"HiPhish/rainbow-delimiters.nvim"
 	}

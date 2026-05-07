@@ -12,7 +12,6 @@ require("tokyonight").setup({
 
 	on_colors = function(colors)
 		colors.Comment = {
-			fg = colors.white,
 			style = colors.italic,
 		}
 	end
