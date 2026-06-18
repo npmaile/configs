@@ -77,6 +77,13 @@ else
 	echo "skipping sway because it's not installed"
 fi
 
+#####
+#git#
+#####
+echo "deploying git config"
+stow git -t $HOME
+echo "done deploying git config"
+
 ###############
 #shell scripts#
 ###############
